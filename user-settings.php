@@ -30,14 +30,6 @@ foreach (glob("blocks/*.php") as $filename)
 echo '<h2>בקרוב כאן יהיה עמוד הגדרות משתמש.</h2>';
 require('con.php');
 
-$con = mysql_connect($db_host,$db_user,$db_pass);
-if (!$con)
-  {
-  die('Could not connect to the server! ' . mysql_error());
-  }
-if (!mysql_select_db($db_name))
-  die("Can't select database");
-
 $query = "SELECT column_name FROM information_schema.columns WHERE table_name = 'members';";
 $result=mysql_query($query);
 
