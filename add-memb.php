@@ -1,6 +1,14 @@
 <?php
 require('con.php');
 
+$con = mysql_connect($db_host,$db_user,$db_pass);
+if (!$con)
+  {
+  die('Could not connect to the server! ' . mysql_error());
+  }
+if (!mysql_select_db($db_name))
+  die("Can't select database");
+
 $query_data = '';
 $query = 'INSERT INTO members (';
 

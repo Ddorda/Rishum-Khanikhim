@@ -2,6 +2,10 @@
 	require('con.php');
         $tbl_name='users'; // Table name
 
+        // Connect to server and select databse.
+        $con = mysql_connect($db_host, $db_username, $users_password)or die("cannot connect");
+        mysql_select_db($db_name)or die("cannot select DB");
+
         // To protect MySQL injection (more detail about MySQL injection)
         $username = stripslashes($username);
         $password = stripslashes($password);

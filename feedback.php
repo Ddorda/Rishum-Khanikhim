@@ -31,6 +31,14 @@ foreach (glob("blocks/*.php") as $filename)
 if ($_SESSION['uid'] == 1) {
 	require('con.php');
 
+	$con = mysql_connect($db_host,$db_user,$db_pass);
+	if (!$con)
+	  {
+	  die('Could not connect to the server! ' . mysql_error());
+	  }
+	if (!mysql_select_db($db_name))
+	  die("Can't select database");
+
 	$query = 'SELECT * FROM feedback;';
 	$result=mysql_query($query);
 	if (!$result) {
@@ -56,6 +64,14 @@ if ($_SESSION['uid'] == 1) {
 else {
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		require('con.php');
+
+		$con = mysql_connect($db_host,$db_user,$db_pass);
+		if (!$con)
+		  {
+		  die('Could not connect to the server! ' . mysql_error());
+		  }
+		if (!mysql_select_db($db_name))
+		  die("Can't select database");
 
 		$_POST['data'] = mysql_real_escape_string($_POST['data']);
 		$query = "INSERT INTO feedback (data) VALUES ('{$_POST['data']}');";
