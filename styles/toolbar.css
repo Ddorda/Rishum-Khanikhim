@@ -1,0 +1,70 @@
+div#toolbar {
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+height: 35px;
+background-color: black;
+}
+#toolbar {
+-moz-box-shadow: 0 3px 20px #000;
+-webkit-box-shadow: 0 3px 20px #000;
+box-shadow: 0 3px 20px #000;
+filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10');
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10')";
+z-index: 600;
+}
+#toolbar-newmemb {
+display:none;
+}
+.toolbar-memb-action {
+display:none;
+}
+#toolbar .available {
+display:block;
+}
+.toolbar-left {
+float:left;
+}
+.toolbar-right {
+float:right;
+}
+#toolbar, #toolbar * {
+text-align: right;
+}
+#toolbar ul {
+margin:0;
+padding-right:0;
+}
+#toolbar ul li {
+float: right;
+margin:10px;
+}
+#toolbar ul li a.active:hover, #toolbar ul li a.active:active, #toolbar ul li a.active, #toolbar ul li.active-trail a, #toolbar ul li a:focus, #toolbar ul li a:hover, #toolbar ul li a:active, #toolbar ul li a.active:focus {
+background: url(/images/toolbar.png) 0 0 repeat-x;
+text-shadow: #333 0 1px 0;
+}
+#toolbar ul li a {
+padding: 0 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+background: #444;
+}
+#toolbar ul li a {
+display: inline-block;
+float: none;
+zoom: 1;
+}
+#toolbar a {
+color: white;
+font-size: .846em;
+text-decoration: none;
+}
+
+#toolbar ul li a {
+padding: 0 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+}

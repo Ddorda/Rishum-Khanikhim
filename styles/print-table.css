@@ -1,0 +1,13 @@
+@media print {
+body { background:none;margin-top:0; }
+#toolbar { display:none; }
+#sidebar { display:none; }
+#content { padding:0; }
+#site-updates { display:none; }
+table, table * { color:black; border: 1px solid!important;}
+table.tablesorter thead tr .header { background:none; }
+.cb { display:none; }
+tbody tr:not(.selected) { display:none; }
+table.tablesorter tbody tr.selected td { color: black;background-color: white; }
+.print { display:block; }
+}
