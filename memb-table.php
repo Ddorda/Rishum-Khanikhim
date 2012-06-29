@@ -1,13 +1,5 @@
 <?php
 require('con.php');
-
-$con = mysql_connect($db_host,$db_user,$db_pass);
-if (!$con)
-  {
-  die('Could not connect to the server! ' . mysql_error());
-  }
-if (!mysql_select_db($db_name))
-  die("Can't select database");
 ?>
 <div id='memb-table'><div id='memb-table-content'>
 <form id='memb-table-form' method='post'>
