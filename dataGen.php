@@ -16,15 +16,15 @@ $query = "SELECT $details WHERE members.class = class.id AND members.ken = ken.i
 } else {
 $query = "SELECT $details INNER JOIN permissions WHERE members.class = class.id AND members.ken = ken.id AND members.city = city.id AND members.shirt = shirt.id AND gender.id = members.gender AND members.ken = {$ken} AND ken.id = permissions.ken_id AND permissions.user_id = {$uid};";
 }
-$result = mysql_query($query);
+$result = $con->query($query);
 if (!$result) {
     die("Query to show fields from table failed $query");
 }
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    array_push($return_arr,$row);
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+	array_push($return_arr,$row);
 }
 echo json_encode($return_arr);
 
-mysql_free_result($result);
-mysql_close($con);
+$result = null;
+$con = null;
 ?>

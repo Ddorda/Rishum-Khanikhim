@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	}
 
         // username and password sent from form 
-        $username=$_POST['username'];
-        $password=md5($_POST['password']);
+//        $username=$_POST['username'];
+//        $password=md5($_POST['password']);
 
 	require("users.php");
         if ($users_count == 1) { // username and password matches

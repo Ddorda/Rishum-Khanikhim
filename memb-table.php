@@ -15,33 +15,33 @@ require('con.php');
 <option value=''>-- בחירה --</option>
 <?php
 if ($uid == 1) {
-  $result = mysql_query("SELECT id, name FROM ken ORDER BY id;"); // Get kens
+  $result = $con->query("SELECT id, name FROM ken ORDER BY id;"); // Get kens
 } else {
-  $result = mysql_query("SELECT id, name FROM ken INNER JOIN permissions WHERE ken.id = permissions.ken_id AND permissions.user_id = {$uid};"); // Get kens
+  $result = $con->query("SELECT id, name FROM ken INNER JOIN permissions WHERE ken.id = permissions.ken_id AND permissions.user_id = {$uid};"); // Get kens
 }
 if (!$result) {
     die("Query to show fields from table failed");
 }
-while ($row = mysql_fetch_array($result))
+while ($row = $result->fetch(PDO::FETCH_ASSOC))
 {
 	($row['id'] == $myken) ? $selected = " selected='selected'" : $selected = '';
 	echo "<option value='{$row['id']}'$selected>{$row['name']}</option>";
 }
-mysql_free_result($result);
+$result = null;
 ?>
 </select></td></tr>
 <tr><td><label>*שכבה:</label></td><td><select class='memb_class' name='class' required>
 <option value=''>-- בחירה --</option>
 <?php
-$result = mysql_query("SELECT id, name FROM class ORDER BY id DESC;");
+$result = $con->query("SELECT id, name FROM class ORDER BY id DESC;");
 if (!$result) {
     die("Query to show fields from table failed");
 }
-while ($row = mysql_fetch_array($result))
+while ($row = $result->fetch(PDO::FETCH_ASSOC))
 {
 	echo "<option value='{$row['id']}'>{$row['name']}</option>";
 }
-mysql_free_result($result);
+$result = null;
 ?>
 </select></td></tr>
 <tr><td><label>קבוצה:</label></td><td><input class='memb_team' type='text' name='team' maxlength='100' /></td></tr>
@@ -49,15 +49,15 @@ mysql_free_result($result);
 <tr><td><label>*ישוב:</label></td><td><select class='memb_city' name='city' required>
 <option value=''>-- בחירה --</option>
 <?php
-$result = mysql_query("SELECT id, name FROM city ORDER BY id DESC;");
+$result = $con->query("SELECT id, name FROM city ORDER BY id DESC;");
 if (!$result) {
     die("Query to show fields from table failed");
 }
-while ($row = mysql_fetch_array($result))
+while ($row = $result->fetch(PDO::FETCH_ASSOC))
 {
         echo "<option value='{$row['id']}'>{$row['name']}</option>";
 }
-mysql_free_result($result);
+$result = null;
 ?>
 </select></td></tr>
 <tr><td><label>מיקוד:</label></td><td><input class='memb_zip_code' type='text' name='zip_code' maxlength='5' /></td></tr>
@@ -67,15 +67,15 @@ mysql_free_result($result);
 <tr><td><label>מידת חולצה:</label></td><td><select class='memb_shirt' name='shirt'>
 <option value='0'>-- בחירה --</option>
 <?php
-$result = mysql_query("SELECT id, name FROM shirt ORDER BY id;");
+$result = $con->query("SELECT id, name FROM shirt ORDER BY id;");
 if (!$result) {
     die("Query to show fields from table failed");
 }
-while ($row = mysql_fetch_array($result))
+while ($row = $result->fetch(PDO::FETCH_ASSOC))
 {
         echo "<option value='{$row['id']}'>{$row['name']}</option>";
 }
-mysql_free_result($result);
+$result = null;
 ?>
 </select></td></tr>
 <tr><td><label>בעיות רפואיות:</label></td><td><textarea name='medical' maxlength='65000'></textarea></td></tr>
@@ -96,7 +96,7 @@ mysql_free_result($result);
 </form>
 </div></div>
 <?php
-mysql_close($con);
+//$con = null;
 ?>
 <!-- multiedit dialog -->
 <div id='yesno-dialog'>

@@ -31,16 +31,16 @@ echo '<h2>בקרוב כאן יהיה עמוד הגדרות משתמש.</h2>';
 require('con.php');
 
 $query = "SELECT column_name FROM information_schema.columns WHERE table_name = 'members';";
-$result=mysql_query($query);
+$result=$con->query($query);
 
-while($row = mysql_fetch_row($result)) {
+while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 	foreach($row as $cell) {
 		if ($cell != 'id')
 			echo $cell.'<br>';
 	}
 }
-mysql_free_result($result);
-mysql_close($con);
+$result = null;
+$con = null;
 ?>
 </div>
 </div>
