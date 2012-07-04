@@ -4,8 +4,6 @@
 
         // To protect MySQL injection (more detail about MySQL injection)
         // username and password sent from form 
-  //      $username=$_POST['username'];
-    //    $password=md5($_POST['password']);
 
         $username = $con->quote($_POST['username']);
         $password = $con->quote(md5($_POST['password']));
@@ -31,14 +29,6 @@
 		foreach ($row as $cell)
 		$headers[$cell] = true;
 	}
-/*
-	while($row = mysql_fetch_assoc($result)) {
-		foreach ($row as $cell)
-		$headers[$cell] = true;
-	}
-*/
-        // Mysql_num_row is counting table row
-        // If result matched $username and $password, table row must be 1 row
 	$result = null;
 	$con = null;
 ?>

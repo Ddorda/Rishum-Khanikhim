@@ -96,7 +96,7 @@ $result = null;
 </form>
 </div></div>
 <?php
-//$con = null;
+$con = null;
 ?>
 <!-- multiedit dialog -->
 <div id='yesno-dialog'>

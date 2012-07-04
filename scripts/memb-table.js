@@ -34,17 +34,13 @@ jQuery(function ($) {
         });
 });
 
-//	function modifySubmitForm (mode) {
-//		if (mode == 'edit' || mode == 'add') {
-			$('#memb-table-form.edit-memb-table-form').submit(function(event) {
-				event.preventDefault(); 
-				alert("submit");
-//				$.post('edit-memb.php', $('#memb-table-form').serialize(), function(data) { console.log(data); });
-				return false;
-			});
-//		}
-//	}
-
+function submitTable() { //IM HERE!!!
+	$.ajax({type:'POST', url: 'edit-memb-ajax.php', data:$('#memb-table-form').serialize(), success: function(response) {
+		console.log(response);
+	}});
+	$.modal.close(); // call next member
+	return false;
+}
 
 function editTable () {
 	var patt=/(?!member-\b)\b\w+/
@@ -56,13 +52,26 @@ function editTable () {
 	function loadItem () {
 		if (currentItem<checkedItems.length) {
 			data2Table(checkedItems[currentItem]);
-			$('#memb-table-form').attr('action', 'edit-memb.php');
-                        //$('#memb-table-form').attr('action', '');
+			$('#memb-table-form').attr('onsubmit', 'return submitTable();');
+                        $('#memb-table-form').attr('action', '');
 			$('#memb-table-form').attr('class', 'edit-memb-table-form');
+			currentItem++;
 			$('#memb-table').modal({
-				onClose: function() { $.modal.close(); currentItem++; loadItem(); } // Load next member
+				onClose: function() { $.modal.close(); loadItem(); } // Load next member
 			});
 		}
+		else {
+			location.reload(true); // If there's nothing more to show refresh page to get latest data
+		}
+	}
+
+	function submitTable() { //IM HERE!!!
+		$.ajax({type:'POST', url: 'edit-memb-ajax.php', data:$('#memb-table-form').serialize(), success: function(response) {
+			  //$('#ContactForm').find('.form_result').html(response);
+			console.log('submitted');
+		}});
+		$.modal.close(); currentItem++; loadItem();
+		return false;
 	}
 }
 function data2Table (id) { // use 0 to clean the table. mostly for new members

@@ -38,7 +38,6 @@ if ($_SESSION['uid'] == 1) {
 	}
 	echo "<table id='feedback-table'>";
 	// printing table rows
-	//while($row = mysql_fetch_row($result))
 	while($row = $result->fetch(PDO::FETCH_ASSOC))
 	{
 	    echo "<tr>";
@@ -50,10 +49,8 @@ if ($_SESSION['uid'] == 1) {
 
 	    echo "</tr>";
 	}
-	//mysql_free_result($result);
 	$result = null;
 	echo '</table>';
-	//mysql_close($con); 
 	$con = null;
 }
 else {
@@ -64,7 +61,6 @@ else {
 		$query = "INSERT INTO feedback (data) VALUES ('{$_POST['data']}');";
 		$result=$con->query($query);
 		echo "הודעתך נשלחה בהצלחה, תודה רבה!";
-		//mysql_close($con);	
 		$con = null;
 	}
 	else {
