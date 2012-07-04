@@ -35,7 +35,7 @@ jQuery(function ($) {
 });
 
 function submitTable() { //IM HERE!!!
-	$.ajax({type:'POST', url: 'edit-memb-ajax.php', data:$('#memb-table-form').serialize(), success: function(response) {
+	$.ajax({type:'POST', url: 'edit-memb.php', data:$('#memb-table-form').serialize(), success: function(response) {
 		console.log(response);
 	}});
 	$.modal.close(); // call next member
