@@ -8,7 +8,7 @@ $return_arr = Array();
 
 $anydata = true;
 
-require('con.php');
+require('config.php');
 
 $details = 'members.id, pname, members.fname, gender.shortname AS gender, members.id_num,members.birth_date, members.team, class.name AS class, city.name AS city, members.address, members.zip_code, members.phone, members.cell_phone, members.email, shirt.name AS shirt, members.medical, members.notes, members.dad, members.dad_cell, members.dad_job, members.mom, members.mom_cell, members.mom_job, members.parent_email FROM members, class, ken, city, shirt, gender';
 if ($uid == 1) {

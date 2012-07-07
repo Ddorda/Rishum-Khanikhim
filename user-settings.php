@@ -28,7 +28,7 @@ foreach (glob("blocks/*.php") as $filename)
 <div id="content">
 <?php
 echo '<h2>בקרוב כאן יהיה עמוד הגדרות משתמש.</h2>';
-require('con.php');
+require('config.php');
 
 $query = "SELECT column_name FROM information_schema.columns WHERE table_name = 'members';";
 $result=$con->query($query);

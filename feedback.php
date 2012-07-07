@@ -29,7 +29,7 @@ foreach (glob("blocks/*.php") as $filename)
 <div id="content">
 <?php
 if ($_SESSION['uid'] == 1) {
-	require('con.php');
+	require('config.php');
 
 	$query = 'SELECT * FROM feedback;';
 	$result=$con->query($query);
@@ -55,7 +55,7 @@ if ($_SESSION['uid'] == 1) {
 }
 else {
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
-		require('con.php');
+		require('config.php');
 
 		$_POST['data'] = $con->quote($_POST['data']);
 		$query = "INSERT INTO feedback (data) VALUES ('{$_POST['data']}');";

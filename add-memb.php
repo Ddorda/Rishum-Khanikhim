@@ -1,5 +1,5 @@
 <?php
-require('con.php');
+require('config.php');
 
 $query_data = '';
 $query = 'INSERT INTO members (';

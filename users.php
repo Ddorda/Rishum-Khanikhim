@@ -1,5 +1,5 @@
 <?php
-	require('con.php');
+	require('config.php');
         $tbl_name='users'; // Table name
 
         // To protect MySQL injection (more detail about MySQL injection)

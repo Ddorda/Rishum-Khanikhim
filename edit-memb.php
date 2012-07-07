@@ -1,7 +1,7 @@
 <?php
 if (!isset($_POST['id'])) { header("Location: index.php"); } // make sure there's id to change;
 
-require('con.php');
+require('config.php');
 
 $query = 'UPDATE members SET ';
 foreach ($_POST as $name => $value) {

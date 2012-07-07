@@ -1,6 +1,6 @@
 <div class="block" id="teams-block"><h3 class="block-title">קבוצות בקן</h3><div class="block-content">
 <?php
-require(__DIR__.'/../con.php');
+require(__DIR__.'/../config.php');
 //$myregion = mysql_query("SELECT region_id FROM ken WHERE id = {$myken};"); //check what is the region of $myken
 
 $myteams = $con->query("SELECT DISTINCT team.name FROM team, membersInTeams WHERE team.id = membersInTeams.team_id");

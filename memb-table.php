@@ -1,5 +1,5 @@
 <?php
-require('con.php');
+require('config.php');
 ?>
 <div id='memb-table'><div id='memb-table-content'>
 <form id='memb-table-form' method='post'>

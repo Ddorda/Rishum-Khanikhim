@@ -2,7 +2,7 @@
 <ul id="browser" class="treeview">
 <ul><li class="open"><span id="shmutz-treeview">השומר הצעיר</span>
 <?php
-require(__DIR__.'/../con.php');
+require(__DIR__.'/../config.php');
 
 $myregion = $con->query("SELECT region_id FROM ken WHERE id = {$myken};"); //check what is the region of $myken
 if (!$myregion) {
