@@ -16,7 +16,6 @@ tbItem('exportTable', '#', 'ייצוא', 'toolbar-memb-action');
 
 tbItem('logout', 'logout.php', 'ניתוק', 'toolbar-left'); 
 tbItem('user-settings', 'user-settings.php', 'הגדרות', 'toolbar-left');
-tbItem('feedback', 'feedback.php', 'פידבק!', 'toolbar-left');
 
 function tbItem ($machine, $link, $title, $class) { // create a toolbar item
 	if (!isset($class))
