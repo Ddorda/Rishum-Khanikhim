@@ -1,4 +1,7 @@
 <?php
+if ( file_exists( __dir__ . '/install' ) )
+	die("Install folder still exists! Please delete it to start using the system.<br />If you didn't install the system yet, do it from <a href='/install'>here!</a>");
+
 session_start();
 if (!isset($_SESSION['loggedin'])) {
 	header("Location: login.php");
